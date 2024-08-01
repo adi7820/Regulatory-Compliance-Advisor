@@ -1,0 +1,10 @@
+langchain-openai 
+unstructured==0.7.12 
+pinecone-client
+openai 
+tiktoken
+langchain 
+clean-text 
+langchain-pinecone 
+langchain-community
+wikipedia

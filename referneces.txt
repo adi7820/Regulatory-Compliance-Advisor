@@ -1,0 +1,128 @@
+https://nordlayer.com/learn/regulatory-compliance/what-is-regulatory-compliance/		(UURL)
+https://dpiit.gov.in/										(Optional RURL)
+Regulatory compliance							(WIki-US)
+Payment Card Industry Data Security Standard				(Wiki-US)
+Federal Information Security Management Act of 2002 			(Wiki-US)
+Hazard analysis and critical control points				(Wiki-US)
+Health Insurance Portability and Accountability Act			(Wiki-US)
+COBIT									(Wiki-US)
+National Institute of Standards and Technology				(Wiki-US)
+Reserve Bank of Australia						(Wiki-Aus)
+Australian Prudential Regulation Authority				(Wiki-Aus)
+Australian Securities and Investments Commission			(Wiki-Aus)
+Australian Competition and Consumer Commission				(Wiki-Aus)
+Australian Communications and Media Authority				(Wiki-Aus)
+Clean Energy Regulator							(Wiki-Aus)
+Therapeutic Goods Administration					(Wiki-Aus)
+ISO 19600								(Wiki-optional)
+https://www.ema.europa.eu/en/human-regulatory-overview/compliance-overview
+https://onfido.com/blog/eu-compliance-regulations/
+https://www.ema.europa.eu/en/human-regulatory-overview
+
+
+https://en.wikipedia.org/wiki/List_of_financial_regulatory_authorities_by_jurisdiction
+USA:
+
+Financial Service:
+https://en.wikipedia.org/wiki/Federal_Reserve
+https://en.wikipedia.org/wiki/Financial_Stability_Oversight_Council
+https://en.wikipedia.org/wiki/Federal_Deposit_Insurance_Corporation
+https://en.wikipedia.org/wiki/Office_of_the_Comptroller_of_the_Currency
+https://en.wikipedia.org/wiki/Consumer_Financial_Protection_Bureau
+https://en.wikipedia.org/wiki/National_Credit_Union_Administration
+https://en.wikipedia.org/wiki/Farm_Credit_Administration
+https://en.wikipedia.org/wiki/Federal_Housing_Finance_Agency
+https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission
+https://en.wikipedia.org/wiki/Commodity_Futures_Trading_Commission
+https://en.wikipedia.org/wiki/Public_Company_Accounting_Oversight_Board
+https://en.wikipedia.org/wiki/Financial_Crimes_Enforcement_Network
+https://en.wikipedia.org/wiki/National_Association_of_Insurance_Commissioners
+
+European Union:
+https://en.wikipedia.org/wiki/List_of_European_Union_regulations
+https://www.europarl.europa.eu/factsheets/en/sheet/83/financial-services-policy
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/regulating-credit-rating-agencies_en#legislation
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32021L0338
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/crowdfunding_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/prudential-rules-investment-firms_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/prudential-rules-investment-firms_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/investment-funds_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/prudential-rules-investment-firms_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/investment-funds_en#legislation
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R0606
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32013R0345
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32009L0065
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/securities-markets/short-selling_en#legislation
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32003L0071
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32003L0006
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32008L0026
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014L0057
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32004L0039
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0600
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014L0065
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019R1156
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R0606
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32013R0346
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/post-trade-services/recovery-and-resolution-central-counterparties-ccps_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/post-trade-services/central-securities-depositories-csds_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/financial-markets/post-trade-services/settlement-finality_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/company-reporting-and-auditing/company-reporting/public-country-country-reporting_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/company-reporting-and-auditing/auditing-companies-financial-statements_en#legislation
+https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/company-reporting-and-auditing/company-reporting/transparency-requirements-listed-companies_en#legislation
+https://finance.ec.europa.eu/banking/banking-union/single-supervisory-mechanism_en#legislation
+https://finance.ec.europa.eu/banking/banking-regulation/prudential-requirements_en#legislation
+https://finance.ec.europa.eu/banking/banking-regulation/prudential-requirements_en#legislation
+https://finance.ec.europa.eu/banking/banking-regulation/bank-recovery-and-resolution_en#legislation
+https://finance.ec.europa.eu/banking/banking-regulation/deposit-guarantee-schemes_en#legislation
+https://finance.ec.europa.eu/banking/supplementary-supervision-financial-conglomerates_en#legislation
+https://finance.ec.europa.eu/banking/non-performing-loans-npls_en#legislation
+https://finance.ec.europa.eu/banking/insurance/insurance-distribution_en#legislation
+https://finance.ec.europa.eu/banking/insurance/motor-insurance_en#legislation
+https://finance.ec.europa.eu/banking/pension-funds/occupational-pension-funds_en#legislation
+https://finance.ec.europa.eu/banking/pension-funds/personal-pension-products_en#legislation
+https://finance.ec.europa.eu/financial-crime/anti-money-laundering-and-countering-financing-terrorism-eu-level_en#legislation
+
+India:
+https://en.wikipedia.org/wiki/Financial_regulation_in_India
+https://en.wikipedia.org/wiki/Reserve_Bank_of_India_Act,_1934
+https://en.wikipedia.org/wiki/Securities_and_Exchange_Board_of_India_Act,_1992
+https://en.wikipedia.org/wiki/Companies_Act_2013
+https://en.wikipedia.org/wiki/Foreign_Exchange_Management_Act
+https://en.wikipedia.org/wiki/Prevention_of_Money_Laundering_Act,_2002
+https://en.wikipedia.org/wiki/Consumer_Protection_Act,_2019
+https://en.wikipedia.org/wiki/Foreign_Contribution_(Regulation)_Act,_2010
+https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12032
+https://en.wikipedia.org/wiki/Securitisation_and_Reconstruction_of_Financial_Assets_and_Enforcement_of_Security_Interest_Act,_2002
+https://en.wikipedia.org/wiki/Indian_Stamp_Act,_1899
+https://en.wikipedia.org/wiki/Negotiable_Instruments_Act,_1881
+https://en.wikipedia.org/wiki/Real_Estate_(Regulation_and_Development)_Act,_2016
+https://en.wikipedia.org/wiki/Micro,_Small_and_Medium_Enterprises_Development_Act,_2006
+https://en.wikipedia.org/wiki/International_Financial_Services_Centres_Authority
+
+Healthcare:
+USA:
+https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act
+https://en.wikipedia.org/wiki/Health_Information_Technology_for_Economic_and_Clinical_Health_Act
+https://en.wikipedia.org/wiki/Food_and_Drug_Administration
+
+EU:
+https://advisera.com/13485academy/what-is-eu-mdr/#:~:text=Under%20the%20EU%20MDR%2C%20medical%20device%20manufacturers%20are,ensure%20ongoing%20compliance%20and%20safety%20of%20the%20devices.
+https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017R0746
+https://www.ema.europa.eu/en/human-regulatory-overview/research-development/compliance-research-development/good-clinical-practice
+https://www.ema.europa.eu/en/human-regulatory-overview/research-development/compliance-research-development/good-clinical-practice/qa-good-clinical-practice-gcp
+https://www.ema.europa.eu/en/human-regulatory-overview/pharmacovigilance-overview
+
+India:
+https://burgeon.co.in/blog/regulatory-compliance-in-healthcare-industry/
+https://en.wikipedia.org/wiki/Food_Safety_and_Standards_Authority_of_India
+
+Data Protection:
+USA:
+https://www.proofpoint.com/us/threat-reference/ccpa-compliance#:~:text=CCPA%20compliance%20is%20a%20set%20of%20regulations%20that,implement%20reasonable%20security%20measures%20to%20protect%20user%20data.
+https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act
+https://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002
+
+EU:
+https://en.wikipedia.org/wiki/General_Data_Protection_Regulation
+
