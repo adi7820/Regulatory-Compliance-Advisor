@@ -1,0 +1,13 @@
+pypdf
+qdrant-client
+langchain
+langchain-community
+transformers
+sentence-transformers
+langchain-huggingface
+langchain-qdrant
+unstructured==0.7.12 
+clean-text 
+wikipedia
+torch
+langchain_openai
