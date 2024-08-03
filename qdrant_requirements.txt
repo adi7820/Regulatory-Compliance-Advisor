@@ -1,5 +1,5 @@
 pypdf
-qdrant-client
+qdrant-client==1.10.0
 langchain
 langchain-community
 transformers
@@ -10,4 +10,8 @@ unstructured==0.7.12
 clean-text 
 wikipedia
 torch
+torchvision
+torchaudio
 langchain_openai
+xformers==0.0.27
+python-dotenv
