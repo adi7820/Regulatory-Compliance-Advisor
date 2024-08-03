@@ -1,0 +1,87 @@
+import gradio as gr
+import os
+import dotenv
+from langchain_openai import ChatOpenAI
+from pinecone import Pinecone
+from langchain_pinecone import PineconeVectorStore
+from langchain_openai import OpenAIEmbeddings
+from langchain.chains import RetrievalQA
+
+dotenv.load_dotenv()
+
+# Set OpenAI API key from environment variable
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+
+# Initialize Pinecone with API key
+api_key = os.getenv("PINECONE_API_KEY")
+pc = Pinecone(api_key=api_key)
+
+# Initialize OpenAI embeddings
+embeddings = OpenAIEmbeddings()
+
+# Function to create PineconeVectorStore based on index_name
+def create_vectorstore(index_name):
+    index_name = index_name.lower()  # Convert index name to lowercase
+    index = pc.Index(index_name)
+    vectorstore = PineconeVectorStore(index_name=index_name, embedding=embeddings)
+    return vectorstore
+
+# Function to run the QA system
+def run_qa_system(index_name, query):
+    vectorstore = create_vectorstore(index_name)
+    
+    llm = ChatOpenAI(
+        openai_api_key=os.getenv("OPENAI_API_KEY"),
+        model_name='gpt-4o-mini',
+        temperature=0.0
+    )
+    
+    qa = RetrievalQA.from_chain_type(
+        llm=llm,
+        chain_type="stuff",
+        retriever=vectorstore.as_retriever()
+    )
+    
+    return qa.run(query)
+
+# Define Gradio interface
+def gradio_interface(index_name, query):
+    return run_qa_system(index_name, query)
+
+# Import Gradio theme
+theme = gr.themes.Soft(
+    neutral_hue="slate",
+).set(
+    body_background_fill='*neutral_50',
+    body_background_fill_dark='*neutral_500',
+    background_fill_primary_dark='*neutral_50',
+    background_fill_secondary_dark='*neutral_50',
+    block_background_fill='*primary_50',
+    block_background_fill_dark='*primary_100'
+)
+
+# Create Gradio app with theme
+with gr.Blocks(theme=theme) as demo:
+    gr.Markdown("# Regulatory Compliance Advisor")
+    
+    index_name = gr.Radio(
+        choices=["Finance", "Healthcare", "Dataprivacy"],
+        label="Select Index Name"
+    )
+    
+    query = gr.Textbox(
+        label="Enter your query",
+        placeholder="Enter your query here..."
+    )
+    
+    result = gr.Textbox(label="Result")
+
+    submit_button = gr.Button("Submit")
+
+    submit_button.click(
+        fn=gradio_interface,
+        inputs=[index_name, query],
+        outputs=result
+    )
+
+demo.launch(share=True)
