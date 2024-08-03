@@ -1,2 +1,2 @@
 # Regulatory-Compliance-Advisor
-GenAI based project
+GenAI based
