@@ -9,6 +9,7 @@ from langchain.chains import RetrievalQA
 from source_wikipedia import update_vectorstore_with_query
 from source_pdf import update_vectorstore_with_pdf
 from pathlib import Path
+from source_url import update_vectorestore_with_url
 
 dotenv.load_dotenv()
 
@@ -42,14 +43,20 @@ def run_qa_system(index_name, query):
     qa = RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",
-        retriever=vectorstore.as_retriever()
+        retriever=vectorstore.as_retriever(search_kwargs={'k': 20})
     )
     
     return qa.run(query)
 
 # Define Gradio interface
 def gradio_interface(index_name, query):
-    return run_qa_system(index_name, query)
+    if index_name is None:
+        res = gr.Warning("Please Select Domain ⛔️!", duration=5)
+    elif query == "":
+        res = gr.Warning("Please Enter Your Query ⛔️!", duration=5)
+    else:
+        res = run_qa_system(index_name, query)
+    return res
 
 # Define Wikipedia interface with domain radio buttons
 def wikipedia_interface(domain, query):
@@ -60,7 +67,7 @@ def wikipedia_interface(domain, query):
     else:
         domain = domain.lower()
         res = update_vectorstore_with_query(query, domain)
-        gr.Info(f"New Data has been added in {domain} domain ℹ️", duration=5)
+        gr.Info(f"ℹ️ New Data has been added in {domain} domain", duration=5)
         #res = f"Hello {domain}, you selected {query} domain."
 
     return res
@@ -75,7 +82,18 @@ def upload_file(domain, filepath):
         # name = Path(filepath).name
         print(filepath)
         res = update_vectorstore_with_pdf(domain, filepath)
-        gr.Info(f"New Data has been added in {domain} domain ℹ️", duration=5)
+        gr.Info(f"ℹ️ New Data has been added in {domain} domain", duration=5)
+    return res
+
+def url_interface(domain, url):
+    if domain is None:
+        res  = gr.Warning("Please Select Domain ⛔️!", duration=5)
+    elif url == "":
+        res  = gr.Warning("Please Enter a Valid URL ⛔️!", duration=5)
+    else:
+        domain = domain.lower()
+        res = update_vectorestore_with_url(domain, url)
+        gr.Info(f"ℹ️ New Data has been added in {domain} domain", duration=5)
     return res
 
 # Import Gradio theme
@@ -115,7 +133,16 @@ pdf_interface = gr.Interface(
         gr.File(label="Upload PDF File", file_types=["pdf"], file_count="single")],
     outputs=gr.Textbox(label="Meta Data")
 )
-bye_interface = gr.Interface(lambda name: "Bye " + name, "text", "text")
+
+dataprivacy_interface = gr.Interface(
+    fn=url_interface,
+    inputs=[gr.Radio(
+            choices=["Finance", "Healthcare", "Dataprivacy"],
+            label="Select Domain"),
+            gr.Textbox(label="URL", placeholder="Enter your source URL...")
+        ],
+    outputs=gr.Textbox(label="Meta Data")
+)
 
 # Create Gradio app with theme
 with gr.Blocks(theme=theme) as demo:
@@ -123,7 +150,7 @@ with gr.Blocks(theme=theme) as demo:
     
     index_name = gr.Radio(
         choices=["Finance", "Healthcare", "Dataprivacy"],
-        label="Select Index Name"
+        label="Select Domain"
     )
     
     query = gr.Textbox(
@@ -144,7 +171,7 @@ with gr.Blocks(theme=theme) as demo:
     # Add parameter viewer with tabbed interface inside the accordion
     with gr.Accordion("Add New Information in RAG Application", open=False):       
         gr.TabbedInterface(
-            [wikipedia_interface, pdf_interface, bye_interface],
+            [wikipedia_interface, pdf_interface, dataprivacy_interface],
             ["Wikipedia", "PDF", "Other URL"]
         )
 
