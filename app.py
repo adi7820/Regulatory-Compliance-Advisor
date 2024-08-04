@@ -7,6 +7,8 @@ from langchain_pinecone import PineconeVectorStore
 from langchain_openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
 from source_wikipedia import update_vectorstore_with_query
+from source_pdf import update_vectorstore_with_pdf
+from pathlib import Path
 
 dotenv.load_dotenv()
 
@@ -63,6 +65,19 @@ def wikipedia_interface(domain, query):
 
     return res
 
+def upload_file(domain, filepath):
+    if domain is None:
+        res  = gr.Warning("Please Select Domain ⛔️!", duration=5)
+    elif filepath is None:
+        res  = gr.Warning("Please Upload a File ⛔️!", duration=5)
+    else:
+        domain = domain.lower()
+        # name = Path(filepath).name
+        print(filepath)
+        res = update_vectorstore_with_pdf(domain, filepath)
+        gr.Info(f"New Data has been added in {domain} domain ℹ️", duration=5)
+    return res
+
 # Import Gradio theme
 theme = gr.themes.Soft(
     neutral_hue="slate",
@@ -88,7 +103,18 @@ wikipedia_interface = gr.Interface(
     ],
     outputs=[gr.Textbox(label="Meta Data")]
 )
-hi_interface = gr.Interface(lambda name: "Hi " + name, "text", "text")
+
+# upload_button = upload_button.upload(upload_file, upload_button)
+# pdf_interface = gr.Interface(lambda name: "Hi " + name, "text", "text")
+pdf_interface = gr.Interface(
+    fn=upload_file,
+    inputs=[gr.Radio(
+            choices=["Finance", "Healthcare", "Dataprivacy"],
+            label="Select Domain")
+        ,
+        gr.File(label="Upload PDF File", file_types=["pdf"], file_count="single")],
+    outputs=gr.Textbox(label="Meta Data")
+)
 bye_interface = gr.Interface(lambda name: "Bye " + name, "text", "text")
 
 # Create Gradio app with theme
@@ -118,7 +144,7 @@ with gr.Blocks(theme=theme) as demo:
     # Add parameter viewer with tabbed interface inside the accordion
     with gr.Accordion("Add New Information in RAG Application", open=False):       
         gr.TabbedInterface(
-            [wikipedia_interface, hi_interface, bye_interface],
+            [wikipedia_interface, pdf_interface, bye_interface],
             ["Wikipedia", "PDF", "Other URL"]
         )
 
