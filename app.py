@@ -6,6 +6,7 @@ from pinecone import Pinecone
 from langchain_pinecone import PineconeVectorStore
 from langchain_openai import OpenAIEmbeddings
 from langchain.chains import RetrievalQA
+from source_wikipedia import update_vectorstore_with_query
 
 dotenv.load_dotenv()
 
@@ -48,6 +49,20 @@ def run_qa_system(index_name, query):
 def gradio_interface(index_name, query):
     return run_qa_system(index_name, query)
 
+# Define Wikipedia interface with domain radio buttons
+def wikipedia_interface(domain, query):
+    if domain is None:
+        res  = gr.Warning("Please Select Domain ⛔️!", duration=5)
+    elif query == "":
+        res  = gr.Warning("Please Enter Title ⛔️!", duration=5)
+    else:
+        domain = domain.lower()
+        res = update_vectorstore_with_query(query, domain)
+        gr.Info(f"New Data has been added in {domain} domain ℹ️", duration=5)
+        #res = f"Hello {domain}, you selected {query} domain."
+
+    return res
+
 # Import Gradio theme
 theme = gr.themes.Soft(
     neutral_hue="slate",
@@ -59,6 +74,22 @@ theme = gr.themes.Soft(
     block_background_fill='*primary_50',
     block_background_fill_dark='*primary_100'
 )
+
+
+# wikipedia_interface = gr.Interface(lambda name: "Hello " + name, "text", "text")
+wikipedia_interface = gr.Interface(
+    fn=wikipedia_interface,
+    inputs=[
+        gr.Radio(
+            choices=["Finance", "Healthcare", "Dataprivacy"],
+            label="Select Domain")
+        ,
+        gr.Textbox(label="Title", placeholder="Enter your wikipedia source title...")
+    ],
+    outputs=[gr.Textbox(label="Meta Data")]
+)
+hi_interface = gr.Interface(lambda name: "Hi " + name, "text", "text")
+bye_interface = gr.Interface(lambda name: "Bye " + name, "text", "text")
 
 # Create Gradio app with theme
 with gr.Blocks(theme=theme) as demo:
@@ -84,4 +115,11 @@ with gr.Blocks(theme=theme) as demo:
         outputs=result
     )
 
-demo.launch(share=True)
+    # Add parameter viewer with tabbed interface inside the accordion
+    with gr.Accordion("Add New Information in RAG Application", open=False):       
+        gr.TabbedInterface(
+            [wikipedia_interface, hi_interface, bye_interface],
+            ["Wikipedia", "PDF", "Other URL"]
+        )
+
+demo.launch()
