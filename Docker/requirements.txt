@@ -1,0 +1,11 @@
+gradio
+python-dotenv
+langchain-openai 
+unstructured==0.7.12 
+pinecone-client
+openai 
+langchain 
+langchain-pinecone 
+langchain-community
+wikipedia
+pypdf
