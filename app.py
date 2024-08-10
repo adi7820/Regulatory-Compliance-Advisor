@@ -14,6 +14,9 @@ from qdrant_client import QdrantClient
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_qdrant import QdrantVectorStore
 from langchain.prompts.prompt import PromptTemplate
+from qdrant_source_wikipedia import update_qudrant_vectorstore_with_query
+from qdrant_source_pdf import update_qdrant_vectorstore_with_pdf
+from qdrant_source_url import update_qdrant_vectorestore_with_url
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -169,41 +172,74 @@ def gradio_interface(index_name, query, vectordb):
     return res
 
 # Define Wikipedia interface with domain radio buttons
-def wikipedia_interface(domain, query):
+def wikipedia_interface(vectordb, domain, query):
     if domain is None:
         res  = gr.Warning("Please Select Domain ⛔️!", duration=5)
     elif query == "":
         res  = gr.Warning("Please Enter Title ⛔️!", duration=5)
+    elif vectordb is None:
+        res = gr.Warning("Please Select VectorDB ⛔️!", duration=5)
+    elif vectordb == "Qdrant":
+        if domain == "Finance":
+            collection_name="finance_collection"
+        elif domain == "Healthcare":
+            collection_name = "Healthcare_collection"
+        else:
+            collection_name = "DataProtection_collection"
+        res = update_qudrant_vectorstore_with_query(query, collection_name)
+        gr.Info(f"ℹ️ New Data has been added in Qdrant of {domain} domain", duration=5)
     else:
         domain = domain.lower()
         res = update_vectorstore_with_query(query, domain)
-        gr.Info(f"ℹ️ New Data has been added in {domain} domain", duration=5)
+        gr.Info(f"ℹ️ New Data has been added in Pinecone of {domain} domain", duration=5)
         #res = f"Hello {domain}, you selected {query} domain."
 
     return res
 
-def upload_file(domain, filepath):
+def upload_file(vectordb, domain, filepath):
     if domain is None:
         res  = gr.Warning("Please Select Domain ⛔️!", duration=5)
     elif filepath is None:
         res  = gr.Warning("Please Upload a File ⛔️!", duration=5)
+    elif vectordb is None:
+        res  = gr.Warning("Please Select VectorDB ⛔️!", duration=5)
+    elif vectordb == "Qdrant":
+        if domain == "Finance":
+            collection_name="finance_collection"
+        elif domain == "Healthcare":
+            collection_name = "Healthcare_collection"
+        else:
+            collection_name = "DataProtection_collection"
+        res = update_qdrant_vectorstore_with_pdf(filepath, collection_name)
+        gr.Info(f"ℹ️ New Data has been added in Qdrant of {domain} domain", duration=5)
     else:
         domain = domain.lower()
         # name = Path(filepath).name
         print(filepath)
         res = update_vectorstore_with_pdf(domain, filepath)
-        gr.Info(f"ℹ️ New Data has been added in {domain} domain", duration=5)
+        gr.Info(f"ℹ️ New Data has been added in Pinecone of {domain} domain", duration=5)
     return res
 
-def url_interface(domain, url):
+def url_interface(vectordb, domain, url):
     if domain is None:
         res  = gr.Warning("Please Select Domain ⛔️!", duration=5)
     elif url == "":
         res  = gr.Warning("Please Enter a Valid URL ⛔️!", duration=5)
+    elif vectordb is None:
+        res = gr.Warning("Please Select VectorDB ⛔️!", duration=5)
+    elif vectordb == "Qdrant":
+        if domain == "Finance":
+            collection_name="finance_collection"
+        elif domain == "Healthcare":
+            collection_name = "Healthcare_collection"
+        else:
+            collection_name = "DataProtection_collection"
+        res = update_qdrant_vectorestore_with_url(collection_name, url)
+        gr.Info(f"ℹ️ New Data has been added in Qdrant of {domain} domain", duration=5)
     else:
         domain = domain.lower()
         res = update_vectorestore_with_url(domain, url)
-        gr.Info(f"ℹ️ New Data has been added in {domain} domain", duration=5)
+        gr.Info(f"ℹ️ New Data has been added in Pinecone of {domain} domain", duration=5)
     return res
 
 # Import Gradio theme
@@ -224,6 +260,9 @@ wikipedia_interface = gr.Interface(
     fn=wikipedia_interface,
     inputs=[
         gr.Radio(
+            choices=["Pinecone", "Qdrant"],
+            label="Select VectorDB"),
+        gr.Radio(
             choices=["Finance", "Healthcare", "Dataprivacy"],
             label="Select Domain")
         ,
@@ -237,6 +276,9 @@ wikipedia_interface = gr.Interface(
 pdf_interface = gr.Interface(
     fn=upload_file,
     inputs=[gr.Radio(
+            choices=["Pinecone", "Qdrant"],
+            label="Select VectorDB"),
+        gr.Radio(
             choices=["Finance", "Healthcare", "Dataprivacy"],
             label="Select Domain")
         ,
@@ -247,6 +289,9 @@ pdf_interface = gr.Interface(
 dataprivacy_interface = gr.Interface(
     fn=url_interface,
     inputs=[gr.Radio(
+            choices=["Pinecone", "Qdrant"],
+            label="Select VectorDB"),
+        gr.Radio(
             choices=["Finance", "Healthcare", "Dataprivacy"],
             label="Select Domain"),
             gr.Textbox(label="URL", placeholder="Enter your source URL...")
