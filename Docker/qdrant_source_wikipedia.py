@@ -14,8 +14,8 @@ import warnings
 warnings.filterwarnings("ignore")
 dotenv.load_dotenv()
 
-qdrant_api_key = "7hCtBhv8qcjRZ6O6DdeEIvd_lXkTombKa64-MrO6nsdLptTWecPFtQ"
-hf_token = "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"
+qdrant_api_key = os.getenv('QDRANT_API_KEY')
+hf_token = os.getenv('HF_TOKEN')
 
 def update_qudrant_vectorstore_with_query(query, collection_name):
     docs = WikipediaLoader(query=query, doc_content_chars_max = 100000, load_max_docs=1).load()

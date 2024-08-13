@@ -11,7 +11,7 @@ import time
 
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-api_key = "9610b4a7-fd58-4884-8463-b4861abb8535"
+api_key = os.getenv("PINECONE_API_KEY")
 
 def update_vectorstore_with_pdf(index_name, file_path):
     pc = Pinecone(api_key=api_key)

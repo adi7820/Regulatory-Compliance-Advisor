@@ -51,14 +51,11 @@ FINAL ANSWER:[/INST]
 
 # Set OpenAI API key from environment variable
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-qdrant_api_key = "7hCtBhv8qcjRZ6O6DdeEIvd_lXkTombKa64-MrO6nsdLptTWecPFtQ"
-os.environ["QDRANT_API_KEY"] = qdrant_api_key
-hf_token = "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"
-os.environ["HF_TOKEN"]=hf_token 
+qdrant_api_key = os.getenv('QDRANT_API_KEY')
+hf_token = os.getenv('HF_TOKEN')
 
 # Initialize Pinecone with API key
-api_key = "9610b4a7-fd58-4884-8463-b4861abb8535"
-os.environ["PINECONE_API_KEY"] = api_key
+api_key = os.getenv("PINECONE_API_KEY")
 pc = Pinecone(api_key=api_key)
 
 # Initialize embeddings

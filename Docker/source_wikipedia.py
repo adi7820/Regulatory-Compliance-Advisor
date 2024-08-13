@@ -10,7 +10,7 @@ import time
 
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-api_key = "9610b4a7-fd58-4884-8463-b4861abb8535"
+api_key = os.getenv("PINECONE_API_KEY")
 
 def update_vectorstore_with_query(query, index_name):
     docs = WikipediaLoader(query=query, doc_content_chars_max = 100000, load_max_docs=1).load()

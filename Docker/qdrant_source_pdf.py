@@ -15,8 +15,8 @@ import warnings
 warnings.filterwarnings("ignore")
 dotenv.load_dotenv()
 
-qdrant_api_key = "7hCtBhv8qcjRZ6O6DdeEIvd_lXkTombKa64-MrO6nsdLptTWecPFtQ"
-hf_token = "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"
+qdrant_api_key = os.getenv('QDRANT_API_KEY')
+hf_token = os.getenv('HF_TOKEN')
 
 def update_qdrant_vectorstore_with_pdf(file_path, collection_name):
     loader = PyPDFLoader(file_path)
