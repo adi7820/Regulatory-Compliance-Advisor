@@ -1,6 +1,8 @@
 gradio
 python-dotenv
 langchain-openai 
+qdrant-client
+langchain-qdrant
 unstructured==0.7.12 
 pinecone-client
 openai 
@@ -9,3 +11,10 @@ langchain-pinecone
 langchain-community
 wikipedia
 pypdf
+sentence-transformers
+langchain-huggingface
+clean-text
+torch
+# torchvision
+# torchaudio
+xformers==0.0.27
