@@ -22,7 +22,9 @@ def update_qdrant_vectorstore_with_pdf(file_path, collection_name):
     loader = PyPDFLoader(file_path)
     pages = loader.load_and_split()
 
-    raw_text =pages[0].page_content
+    raw_text =" "
+    for i in range(len(pages)):
+       raw_text += pages[i].page_content
 
     clean_text = clean(text=raw_text,
                     fix_unicode=True,
