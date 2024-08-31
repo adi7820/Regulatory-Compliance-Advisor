@@ -20,6 +20,17 @@ Our system ingests information from a variety of sources, including:
 - PDF Documents
 - Wikipedia Pages
 - Websites
+This diverse input ensures a comprehensive understanding of regulatory landscapes across regions such as the US, European Union, and India.
+
+## Technical Framework
+### RAG Architecture
+- Data Preparation:
+  - Embeddings: OpenAI Embedding Model
+  - VectorDB: PineCone
+- Generation: GPT-4o-Mini
+- Evaluation: RAGAS
+- Deployment: Docker
+- User Interface: Gradio
 
 ###
 ## Run Using Docker Setup
