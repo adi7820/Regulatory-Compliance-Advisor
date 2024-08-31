@@ -71,8 +71,16 @@ We also developed a secondary architecture based entirely on open-source technol
 
 ![image](https://github.com/user-attachments/assets/621d7a37-7d66-4834-b571-a9d8a18c3215)
 
-###
-## Run Using Docker Setup
+### Discussion of Results
+- Performance: GPT-4o-mini outperformed Llama-3.1 in most evaluation metrics.
+- Retrieval Efficiency: Stella and OpenAI Embedding models performed comparably in retrieval tasks.
+- Response Time: GPT-4o-mini was 5x faster than Llama-3.1, making it the preferred deployment model with both OpenAI and Stella embeddings.
+
+## Deployment
+- Implemented a user-friendly interface using Gradio.
+- Encapsulated the application in a Docker container, and pushed it to Docker Hub for easy deployment.
+
+### Run Using Docker Setup
   ### 1. Pull the Docker image:
   ```bash
   docker pull adi1710/rag-gradio-app:v2
@@ -84,5 +92,13 @@ We also developed a secondary architecture based entirely on open-source technol
   ### 3. Access the Application:
   Once the container is running, you can access the application through your web browser at `http://localhost:7860`.
 
+## Conclusion and Future Recommendations
+We have successfully deployed a RAG pipeline capable of providing regulatory compliance guidance tailored to various sectors. This system enables businesses to navigate complex regulations, helping them avoid legal penalties, maintain their reputations, and operate smoothly across different regions.
+
+### Future Enhancements
+- Automated Updates: Implement regular update checks to ensure the database remains current.
+- Embedding Finetuning: Further finetuning the embedding model to improve the quality of generated answers.
+
+This repository provides a robust foundation for businesses seeking to ensure compliance with industry regulations, offering a scalable, secure, and efficient solution for regulatory navigation.
         
 
