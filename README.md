@@ -31,7 +31,30 @@ This diverse input ensures a comprehensive understanding of regulatory landscape
 - Evaluation: RAGAS
 - Deployment: Docker
 - User Interface: Gradio
+### Vector Database Configuration
+- Chunk Size: 500
+- Indices: 3
+- Retrieval Search Algorithm: Similarity Search
+- Retrieved Chunks: 20
+- Generation Output Tokens: 512
+- Temperature: 0
 
+## Open-Source Pipeline
+We also developed a secondary architecture based entirely on open-source technologies:
+- Embedding Model: Stella
+- VectorDB: Qdrant
+- Generation Model: Llama 3.1 8B (finetuned and non-finetuned variants)
+- Challenges: The finetuned Llama model produced suboptimal outputs, leading us to revert to the non-finetuned Llama 3.1 8B Instruct model for generation tasks.
+
+### Prompt Data Format
+- Context Chunks: 20 (each of 512 tokens)
+- Relevant Chunks: 4 (random order)
+- Components: User Query, Generated Answer
+
+### Finetuning Process
+- Model: Llama 3.1 8B
+- Techniques: LoRA Finetuning, LoRA Adaptor merging
+- Final Model: Merged using SLEPR with the Llama 3.1 8B Instruct model
 ###
 ## Run Using Docker Setup
   ### 1. Pull the Docker image:
