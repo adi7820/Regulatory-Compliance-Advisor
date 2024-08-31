@@ -1,6 +1,9 @@
 # Regulatory-Compliance-Advisor
 This project is dedicated to the development of an AI-powered advisory system that assists businesses in navigating the complex and ever-evolving landscape of industry regulations. The system is designed to offer actionable compliance guidance by leveraging a Retrieval-Augmented Generation (RAG) framework, ensuring that users stay informed about the latest regulatory changes.
 
+![image](https://github.com/user-attachments/assets/6822274c-c83c-4bc9-8ad4-716226443dd8)
+
+
 ## Key Features
 ### 1. Retrieval-Augmented Generation (RAG) Setup
 Our system employs a RAG architecture to maintain an up-to-date understanding of regulatory changes. The system provides precise and relevant compliance guidance, helping businesses stay compliant across multiple jurisdictions.
