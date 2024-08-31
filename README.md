@@ -55,6 +55,22 @@ We also developed a secondary architecture based entirely on open-source technol
 - Model: Llama 3.1 8B
 - Techniques: LoRA Finetuning, LoRA Adaptor merging
 - Final Model: Merged using SLEPR with the Llama 3.1 8B Instruct model
+
+## Evaluation
+### RAG Evaluation Process
+- Data Generation: Utilized the Groq API to generate query-answer pairs from the Llama-3.1-70B-instruct model.
+- Chunk Size: 2048 tokens per chunk
+- Generated Pairs: 10 per chunk, yielding 30 query-answer pairs each for the Data Privacy, Healthcare, and Finance departments.
+- Hallucination Control: Removed outputs exceeding the 99th percentile length threshold.
+
+### RAG Pipeline Evaluation Metrics
+- Context Precision
+- Faithfulness
+- Answer Relevancy
+- Context Recall
+
+![image](https://github.com/user-attachments/assets/621d7a37-7d66-4834-b571-a9d8a18c3215)
+
 ###
 ## Run Using Docker Setup
   ### 1. Pull the Docker image:
