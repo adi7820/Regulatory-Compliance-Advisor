@@ -14,6 +14,13 @@ Our approach mitigates the risks associated with using proprietary models, ensur
 ### 4. Domain-Specific Fine-Tuning
 Generic responses can undermine the effectiveness of AI in specialized domains. To combat this, our system incorporates domain-specific fine-tuning, ensuring that the generated advice is both relevant and accurate for specific sectors like Finance, Healthcare, and Data Privacy.
 
+### 5. Diverse Data Sources
+Our system ingests information from a variety of sources, including:
+
+- PDF Documents
+- Wikipedia Pages
+- Websites
+
 ###
 ## Run Using Docker Setup
   ### 1. Pull the Docker image:
